@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BirGe — Pitch Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="birge-deck.css">
+<style>deck-stage:not(:defined){visibility:hidden}</style>
+</head>
+<body class="gray-mech">
+
+<deck-stage width="1920" height="1080">
+
+  <!-- ===== 1. Обложка ===== -->
+  <section data-label="Обложка" class="s-cover" data-speaker-notes="Привет! Это BirGe — мобильное приложение, в котором покупать с глобальных маркетплейсов дешевле вместе. Идея простая: вы собираете команду из друзей или коллег, и чем больше вас в команде, тем ниже цена для каждого. За следующие четыре минуты покажу, как это работает — от входа в приложение до оформления заказа.">
+    <div class="cover-left">
+      <div class="wordmark rise">BirGe</div>
+      <h1 class="cover-title rise d1">Покупать дешевле вместе</h1>
+      <p class="cover-sub rise d2">Коллективные покупки товаров с глобальных маркетплейсов</p>
+      <div class="cover-tag rise d3">Мобильное приложение · Expo</div>
+    </div>
+    <div class="cover-phone rise d2">
+      <div class="pscale" style="--s: .76;">
+        <div class="phone shadow">
+          <div class="p-status"><span>9:41</span><span class="p-batt"></span></div>
+          <div class="p-body">
+            <div class="p-search">Поиск товаров</div>
+            <p class="p-sect">Для вас</p>
+            <div class="p-prod">
+              <div class="ph-img">фото товара</div>
+              <div class="p-prod-info">
+                <div class="p-prod-name">Беспроводные наушники</div>
+                <div class="p-prod-price"><span class="old">58 000 ₸</span><span class="team">46 400 ₸</span></div>
+              </div>
+            </div>
+            <div class="p-prod">
+              <div class="ph-img">фото товара</div>
+              <div class="p-prod-info">
+                <div class="p-prod-name">Кроссовки</div>
+                <div class="p-prod-price"><span class="old">42 000 ₸</span><span class="team">33 600 ₸</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="p-tab"><span class="on">Лента</span><span>Команда</span><span>Корзина</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. Проблема ===== -->
+  <section data-label="Проблема" data-speaker-notes="Начнём с проблемы. Когда человек заказывает товар с глобального маркетплейса сам, он всегда платит полную цену — скидок за объём для одного покупателя просто не существует. Сам путь тоже непростой: чужая платформа, валюта, доставка. И главное — друзья и коллеги часто хотят те же самые товары, но каждый проходит этот путь в одиночку и переплачивает.">
+    <p class="eyebrow rise">Проблема</p>
+    <h2 class="title rise d1">Покупать в одиночку — дорого и сложно</h2>
+    <div class="cards3 rise d2">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>Полная цена</h3>
+        <p>Один покупатель не получает скидок за объём — платит максимум.</p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>Сложный путь</h3>
+        <p>Чужой маркетплейс, валюта, доставка — каждый заказ как отдельный квест.</p>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>Каждый сам по себе</h3>
+        <p>Друзья хотят те же товары, но покупают порознь и переплачивают.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. Решение ===== -->
+  <section data-label="Решение" class="s-solution" data-speaker-notes="BirGe собирает весь этот путь в одно приложение. Сначала — персональная лента: пользователь выбирает интересы и видит подходящие товары. Дальше — команда: можно создать свою или присоединиться по коду, который прислал друг. И наконец корзина — индивидуальная или командная. Кладёте товар в командную корзину — и скидка растёт с каждым новым участником.">
+    <p class="eyebrow rise">Решение</p>
+    <h2 class="title rise d1">BirGe объединяет покупателей в команды</h2>
+    <div class="sol-row">
+      <div class="sol-steps rise d2">
+        <div class="step">
+          <div class="step-n">1</div>
+          <div class="step-t">
+            <h3>Персональная лента</h3>
+            <p>Рекомендации по выбранным интересам — нужные товары без поиска.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">2</div>
+          <div class="step-t">
+            <h3>Команда</h3>
+            <p><span class="accent-q">Создать команду или присоединиться по коду</span> — за пару секунд.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-n">3</div>
+          <div class="step-t">
+            <h3>Скидка</h3>
+            <p><span class="accent-q">Индивидуальная или командная корзина</span> — командная цена ниже для каждого.</p>
+          </div>
+        </div>
+      </div>
+      <div class="rise d3">
+        <div class="pscale" style="--s: .62;">
+          <div class="phone shadow">
+            <div class="p-status"><span>9:41</span><span class="p-batt"></span></div>
+            <div class="p-body">
+              <h3 class="p-h1">Моя команда</h3>
+              <div class="p-codecard">
+                <span class="cc-l">Код приглашения</span>
+                <span class="cc-v">BG-7K4F</span>
+              </div>
+              <div class="p-avs">
+                <span class="av">АК</span><span class="av">ДС</span><span class="av">МТ</span><span class="av">ЕЖ</span>
+              </div>
+              <div class="p-prog"><i></i></div>
+              <div class="p-prog-row"><span class="green">Скидка 20%</span><span>максимум 30%</span></div>
+              <div class="p-spacer"></div>
+              <div class="p-btn">Пригласить друга</div>
+            </div>
+            <div class="p-home-ind"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. User flow ===== -->
+  <section data-label="User flow" class="s-flow" data-speaker-notes="Весь путь пользователя — семь шагов. Вход по номеру телефона и паролю, подтверждение по SMS, выбор интересов — и лента уже персональная. Дальше пользователь создаёт команду или входит в существующую по коду, наполняет корзину и переходит к единому checkout. Оплата в текущей версии — демонстрационная. Ключевой шаг здесь — команда: именно она превращает обычную покупку в выгодную.">
+    <p class="eyebrow rise">User flow</p>
+    <h2 class="title rise d1">Путь пользователя: от входа до checkout</h2>
+    <div class="flow rise d2">
+      <div class="flow-line"></div>
+      <div class="fnode">
+        <div class="fn-c">1</div>
+        <h4>Вход</h4>
+        <p>Телефон и пароль</p>
+      </div>
+      <div class="fnode">
+        <div class="fn-c">2</div>
+        <h4>SMS-код</h4>
+        <p>Подтверждение номера</p>
+      </div>
+      <div class="fnode">
+        <div class="fn-c">3</div>
+        <h4>Интересы</h4>
+        <p>Категории товаров</p>
+      </div>
+      <div class="fnode">
+        <div class="fn-c">4</div>
+        <h4>Лента</h4>
+        <p>Персональные рекомендации</p>
+      </div>
+      <div class="fnode hot">
+        <div class="fn-c">5</div>
+        <h4>Команда</h4>
+        <p>Создать или войти по коду</p>
+      </div>
+      <div class="fnode">
+        <div class="fn-c">6</div>
+        <h4>Корзина</h4>
+        <p>Личная или командная</p>
+      </div>
+      <div class="fnode">
+        <div class="fn-c">7</div>
+        <h4>Checkout</h4>
+        <p>Единый демо-режим</p>
+      </div>
+    </div>
+    <div class="flow-badge rise d3">+5% к скидке за каждого участника команды</div>
+  </section>
+
+  <!-- ===== 5. Механика скидки ===== -->
+  <section data-label="Механика скидки" class="s-mech" data-speaker-notes="Теперь главное — как считается скидка. Каждый участник команды даёт пять процентов скидки. Смотрите на примере: товар стоит сто тысяч тенге. Собралась команда из четырёх человек — это минус двадцать процентов. Итоговая цена — восемьдесят тысяч, и каждый участник экономит двадцать тысяч тенге. Расти бесконечно скидка не может: потолок — тридцать процентов, то есть команда из шести человек.">
+    <p class="eyebrow rise">Механика</p>
+    <h2 class="title rise d1">Каждый участник команды даёт 5% скидки</h2>
+    <div class="mech-card rise d2">
+      <div class="mech-team">
+        <div class="mech-avs">
+          <span class="av">АК</span><span class="av">ДС</span><span class="av">МТ</span><span class="av">ЕЖ</span>
+        </div>
+        <span class="mt-label">Команда: 4 человека</span>
+        <span class="mt-chip">−20%</span>
+      </div>
+      <div class="mech-price">
+        <span class="old">100 000 ₸</span>
+        <span class="new">80 000 ₸</span>
+        <span class="save">Экономия 20 000 ₸</span>
+      </div>
+      <div class="mech-prog">
+        <div class="mech-bar"><i></i></div>
+        <div class="mp-row">
+          <span>4 участника · −20%</span>
+          <span class="mp-max">Максимальная скидка — 30%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. MVP и основные экраны ===== -->
+  <section data-label="MVP и экраны" class="s-mvp" data-speaker-notes="Всё это уже работает в MVP — вот его семь экранов. Вход по телефону и паролю, подтверждение по SMS, выбор интересов. Дальше — персональная лента с командными ценами, экран команды с кодом приглашения и прогрессом скидки, корзина с переключателем «индивидуальная — командная» и единый демонстрационный checkout. Это живое Expo-приложение, его можно открыть и пройти весь путь прямо сейчас.">
+    <p class="eyebrow rise">MVP</p>
+    <h2 class="title rise d1">Семь экранов MVP</h2>
+    <div class="mvp-grid rise d2">
+      <figure>
+        <div class="pscale" style="--s: .5;">
+          <div class="phone">
+            <div class="p-status"><span>9:41</span><span class="p-batt"></span></div>
+            <div class="p-body">
+              <div class="p-logo">BirGe</div>
+              <h3 class="p-h1 center">Вход</h3>
+              <div class="p-field"><span class="filled">+7 700 123 45 67</span></div>
+              <div class="p-field">Пароль</div>
+              <div class="p-btn">Войти</div>
+              <div class="p-link">Создать аккаунт</div>
+            </div>
+            <div class="p-home-ind"></div>
+          </div>
+        </div>
+        <figcaption>Login</figcaption>
+      </figure>
+      <figure>
+        <div class="pscale" style="--s: .5;">
+          <div class="phone">
+            <div class="p-status"><span>9:41</span><span class="p-batt"></span></div>
+            <div class="p-body">
+              <h3 class="p-h1 center" style="margin-top: 70px;">Код из SMS</h3>
+              <p class="p-sub center">Отправили на +7 700 123 45 67</p>
+              <div class="p-code"><i>4</i><i>8</i><i>2</i><i class="active"></i></div>
+              <div class="p-link">Отправить код ещё раз</div>
+            </div>
+            <div class="p-home-ind"></div>
+          </div>
+        </div>
+        <figcaption>SMS</figcaption>
+      </figure>
+      <figure>
+        <div class="pscale" style="--s: .5;">
+          <div class="phone">
+            <div class="p-status"><span>9:41</span><span class="p-batt"></span></div>
+            <div class="p-body">
+              <h3 class="p-h1">Что вам интересно?</h3>
+              <div class="p-chips">
+                <span class="p-chip sel">Электроника</span><span class="p-chip">Мода</span><span class="p-chip sel">Дом</span><span class="p-chip">Спорт</span><span class="p-chip">Красота</span><span class="p-chip sel">Гаджеты</span><span class="p-chip">Детям</span>
+              </div>
+              <div class="p-spacer"></div>
+              <div class="p-btn">Продолжить</div>
+            </div>
+            <div class="p-home-ind"></div>
+          </div>
+        </div>
+        <figcaption>Interests</figcaption>
+      </figure>
+      <figure>
+        <div class="pscale" style="--s: .5;">
+          <div class="phone">
+            <div class="p-status"><span>9:41</span><span class="p-batt"></span></div>
+            <div class="p-body">
+              <div class="p-search">Поиск товаров</div>
+              <p class="p-sect">Для вас</p>
+              <div class="p-prod">
+                <div class="ph-img">фото товара</div>
+                <div class="p-prod-info">
+                  <div class="p-prod-name">Беспроводные наушники</div>
+                  <div class="p-prod-price"><span class="old">58 000 ₸</span><span class="team">46 400 ₸</span></div>
+                </div>
+              </div>
+              <div class="p-prod">
+                <div class="ph-img">фото товара</div>
+                <div class="p-prod-info">
+                  <div class="p-prod-name">Кроссовки</div>
+                  <div class="p-prod-price"><span class="old">42 000 ₸</span><span class="team">33 600 ₸</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="p-tab"><span class="on">Лента</span><span>Команда</span><span>Корзина</span></div>
+          </div>
+        </div>
+        <figcaption>Home</figcaption>
+      </figure>
+      <figure>
+        <div class="pscale" style="--s: .5;">
+          <div class="phone">
+            <div class="p-status"><span>9:41</span><span class="p-batt"></span></div>
+            <div class="p-body">
+              <h3 class="p-h1">Моя команда</h3>
+              <div class="p-codecard">
+                <span class="cc-l">Код приглашения</span>
+                <span class="cc-v">BG-7K4F</span>
+              </div>
+              <div class="p-avs">
+                <span class="av">АК</span><span class="av">ДС</span><span class="av">МТ</span><span class="av">ЕЖ</span>
+              </div>
+              <div class="p-prog"><i></i></div>
+              <div class="p-prog-row"><span class="green">Скидка 20%</span><span>максимум 30%</span></div>
+              <div class="p-spacer"></div>
+              <div class="p-btn">Пригласить друга</div>
+            </div>
+            <div class="p-home-ind"></div>
+          </div>
+        </div>
+        <figcaption>Team</figcaption>
+      </figure>
+      <figure>
+        <div class="pscale" style="--s: .5;">
+          <div class="phone">
+            <div class="p-status"><span>9:41</span><span class="p-batt"></span></div>
+            <div class="p-body">
+              <h3 class="p-h1">Корзина</h3>
+              <div class="p-seg"><span>Личная</span><span class="on">Командная</span></div>
+              <div class="p-row"><span class="rl">Беспроводные наушники</span><span class="rv">58 000 ₸</span></div>
+              <div class="p-row"><span class="rl">Кроссовки</span><span class="rv">42 000 ₸</span></div>
+              <div class="p-div"></div>
+              <div class="p-row green"><span class="rl">Скидка −20%</span><span class="rv">−20 000 ₸</span></div>
+              <div class="p-row total"><span class="rl">Итого</span><span class="rv">80 000 ₸</span></div>
+              <div class="p-spacer"></div>
+              <div class="p-btn">К оформлению</div>
+            </div>
+            <div class="p-home-ind"></div>
+          </div>
+        </div>
+        <figcaption>Cart</figcaption>
+      </figure>
+      <figure>
+        <div class="pscale" style="--s: .5;">
+          <div class="phone">
+            <div class="p-status"><span>9:41</span><span class="p-batt"></span></div>
+            <div class="p-body">
+              <h3 class="p-h1">Checkout</h3>
+              <div class="p-badge">демо-режим</div>
+              <div class="p-row muted"><span class="rl">Товары</span><span class="rv">100 000 ₸</span></div>
+              <div class="p-row green"><span class="rl">Скидка команды</span><span class="rv">−20 000 ₸</span></div>
+              <div class="p-div"></div>
+              <div class="p-row total"><span class="rl">Итого</span><span class="rv">80 000 ₸</span></div>
+              <div class="p-spacer"></div>
+              <div class="p-btn">Оплатить · демо</div>
+            </div>
+            <div class="p-home-ind"></div>
+          </div>
+        </div>
+        <figcaption>Checkout</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== 7. Технологии и развитие ===== -->
+  <section data-label="Технологии и развитие" class="s-tech" data-speaker-notes="Под капотом сегодня — Expo и React Native: вход по телефону с SMS, команды, две корзины и демонстрационный checkout. Дальше по дорожной карте — концепты: SIM и eSIM ID как слой безопасной идентификации, интеграция с API маркетплейсов, AI-рекомендации и реальные платежи. Подчеркну: это именно концепты, мы не выдаём их за готовое. Попробовать MVP можно прямо сейчас по QR-коду. BirGe делает глобальные покупки локальными, социальными и выгодными. Спасибо!">
+    <p class="eyebrow rise">Технологии и развитие</p>
+    <h2 class="title rise d1">Стек сегодня и развитие завтра</h2>
+    <div class="tech-row rise d2">
+      <div class="tech-col today">
+        <h3>Работает сегодня</h3>
+        <ul>
+          <li>Expo · React Native</li>
+          <li>Вход по телефону и паролю, подтверждение по SMS</li>
+          <li>Команды и приглашение по коду</li>
+          <li>Индивидуальная и командная корзины</li>
+          <li>Единый демонстрационный checkout</li>
+        </ul>
+      </div>
+      <div class="tech-col">
+        <h3>Концепты в развитии</h3>
+        <ul>
+          <li>SIM/eSIM ID — концептуальный слой безопасной идентификации</li>
+          <li class="concept-note">Интеграция marketplace API</li>
+          <li class="concept-note">AI-рекомендации в ленте</li>
+          <li class="concept-note">Реальные платежи</li>
+        </ul>
+      </div>
+      <div class="qr-col">
+        <div class="qr-ph">QR-код<br>Expo Web</div>
+        <p>Попробовать MVP в браузере</p>
+      </div>
+    </div>
+    <p class="tech-tagline rise d3"><span class="tg-brand">BirGe</span> делает глобальные покупки локальными, социальными и выгодными.</p>
+  </section>
+
+</deck-stage>
+
+<div id="tweaks-root"></div>
+
+<script src="deck-stage.js"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel">
+  const BIRGE_TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "accent": "#FF385C",
+    "scale": 1,
+    "grayMechanics": true
+  }/*EDITMODE-END*/;
+
+  function BirgeTweaks() {
+    const [t, setTweak] = useTweaks(BIRGE_TWEAK_DEFAULTS);
+    React.useEffect(() => {
+      const r = document.documentElement.style;
+      r.setProperty('--coral', t.accent);
+      r.setProperty('--scale', String(t.scale));
+      document.body.classList.toggle('gray-mech', !!t.grayMechanics);
+    }, [t]);
+    return (
+      <TweaksPanel>
+        <TweakSection label="Бренд" />
+        <TweakColor label="Акцент" value={t.accent}
+                    options={['#FF385C', '#F4365E', '#E61E4D']}
+                    onChange={(v) => setTweak('accent', v)} />
+        <TweakSection label="Типографика" />
+        <TweakSlider label="Масштаб текста" value={t.scale} min={0.85} max={1.15} step={0.05}
+                     onChange={(v) => setTweak('scale', v)} />
+        <TweakSection label="Слайд 5" />
+        <TweakToggle label="Серый фон механики" value={!!t.grayMechanics}
+                     onChange={(v) => setTweak('grayMechanics', v)} />
+      </TweaksPanel>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<BirgeTweaks />);
+</script>
+
+</body>
+</html>
