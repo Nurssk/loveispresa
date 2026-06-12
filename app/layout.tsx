@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "BirGe — Pitch Deck",
   description: "Interactive slide-based presentation for BirGe",
   icons: {
-    icon: "/favicon.svg"
+    icon: "/favicon.jpg"
   }
 };
 

@@ -39,7 +39,7 @@ function FullscreenIcon() {
 function BrandLogo({ centered = false }: { centered?: boolean }) {
   return (
     <div className={`brand-logo ${centered ? "centered" : ""}`} aria-label="BirGe">
-      <img src="/birge-logo.svg" alt="" />
+      <img src="/birge-logo.jpg" alt="" />
       <span>BirGe</span>
     </div>
   );
@@ -79,6 +79,16 @@ function PhoneMockup({ screen, scale = 0.5, shadow = false }: { screen: PhoneScr
         )}
       </div>
       {hasCaption ? <figcaption>{screen.label}</figcaption> : null}
+    </figure>
+  );
+}
+
+function PhoneImage({ src, alt, scale = 0.76, shadow = false }: { src: string; alt: string; scale?: number; shadow?: boolean }) {
+  return (
+    <figure className="phone-figure" style={{ "--phone-scale": scale } as React.CSSProperties}>
+      <div className={`phone phone-photo ${shadow ? "phone-shadow" : ""}`}>
+        <img src={src} alt={alt} />
+      </div>
     </figure>
   );
 }
@@ -232,7 +242,7 @@ function PhoneRow({ left, right, tone }: { left: string; right: string; tone?: "
   );
 }
 
-function SlideView({ slide }: { slide: Slide }) {
+function SlideView({ slide, revealed = false }: { slide: Slide; revealed?: boolean }) {
   switch (slide.kind) {
     case "title":
       return (
@@ -244,7 +254,7 @@ function SlideView({ slide }: { slide: Slide }) {
             <div className="tag">{slide.tag}</div>
           </div>
           <div className="cover-device rise delay-2">
-            <PhoneMockup screen={slide.phone} scale={0.76} shadow />
+            <PhoneImage src="/mvp/home.jpg" alt="Главный экран BirGe" scale={0.76} shadow />
           </div>
         </section>
       );
@@ -338,8 +348,10 @@ function SlideView({ slide }: { slide: Slide }) {
         <section className="slide slide-mvp">
           <SlideHeader eyebrow={slide.eyebrow} title={slide.title} />
           <div className="mvp-grid rise delay-2">
-            {slide.screens.map((screen) => (
-              <PhoneMockup key={screen.kind} screen={screen} />
+            {slide.shots.map((shot) => (
+              <figure className="mvp-shot" key={shot.src}>
+                <img src={shot.src} alt={shot.label} />
+              </figure>
             ))}
           </div>
         </section>
@@ -353,12 +365,24 @@ function SlideView({ slide }: { slide: Slide }) {
             <TechColumn title={slide.futureTitle} items={slide.future} muted />
             <div className="qr-card">
               <div className="qr-box">
-                {slide.qrTitle}
-                <br />
-                {slide.qrSubtitle}
+                <img src="/expoQR.png" alt={`${slide.qrTitle} ${slide.qrSubtitle}`} />
               </div>
               <p>{slide.qrNote}</p>
             </div>
+          </div>
+        </section>
+      );
+    case "reveal":
+      return (
+        <section className={`slide slide-reveal ${revealed ? "is-revealed" : ""}`}>
+          <img className="reveal-founder-photo" src="/youtube-founder-photo.jpg" alt="Команда с основателем YouTube" />
+          <div className="reveal-copy rise">
+            <img className="reveal-youtube-logo" src="/youtube-logo.svg" alt="YouTube" />
+            <p className="reveal-eyebrow">{slide.eyebrow}</p>
+            <h2>{slide.title}</h2>
+          </div>
+          <div className="reveal-stage rise delay-2" aria-hidden={!revealed}>
+            <blockquote>{slide.revealText}</blockquote>
           </div>
         </section>
       );
@@ -370,6 +394,7 @@ function SlideView({ slide }: { slide: Slide }) {
             <h2>{slide.title}</h2>
             <p>{slide.text}</p>
             <span>{slide.tag}</span>
+            <CompanyLogoRow />
           </div>
         </section>
       );
@@ -398,15 +423,42 @@ function TechColumn({ title, items, accent = false, muted = false }: { title: st
   );
 }
 
+function CompanyLogoRow() {
+  const logoBaseStyle: React.CSSProperties = {
+    height: 58,
+    display: "block",
+    flex: "0 0 auto",
+    borderRadius: 14,
+    boxShadow: "0 14px 34px rgba(34, 34, 34, 0.08)"
+  };
+
+  return (
+    <div
+      className="company-logo-row"
+      aria-label="Companies where the team has worked"
+      style={{ margin: "40px auto 0", display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}
+    >
+      <img className="company-logo company-flowleads" src="/company-logos/Flow.jpg" alt="Flowleads" style={{ ...logoBaseStyle, width: 198, objectFit: "cover" }} />
+      <img className="company-logo company-in" src="/company-logos/Nfac.jpg" alt="in!" style={{ ...logoBaseStyle, width: 58, borderRadius: "50%", objectFit: "cover" }} />
+      <img className="company-logo company-cmark" src="/company-logos/CCDEV.jpg" alt="Company logo" style={{ ...logoBaseStyle, width: 58, objectFit: "cover" }} />
+      <img className="company-logo company-higgsfield" src="/company-logos/Higg.jpg" alt="Higgsfield" style={{ ...logoBaseStyle, width: 205, objectFit: "cover" }} />
+      <img className="company-logo company-yonsei" src="/company-logos/YonseiUniversityEmblem.svg.png" alt="Yonsei University" style={{ ...logoBaseStyle, width: 58, objectFit: "contain" }} />
+      <img className="company-logo company-nu" src="/company-logos/NU.png" alt="Nazarbayev University" style={{ ...logoBaseStyle, width: 58, padding: 6, objectFit: "contain", background: "#ffffff" }} />
+    </div>
+  );
+}
+
 export default function Presentation({ slides }: PresentationProps) {
   const [index, setIndex] = useState(0);
   const [controlsVisible, setControlsVisible] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [revealed, setRevealed] = useState(false);
   const deckRef = useRef<HTMLDivElement>(null);
   const touchStartRef = useRef<{ x: number; y: number } | null>(null);
   const hideTimerRef = useRef<number | null>(null);
 
   const activeSlide = slides[index];
+  const canRevealActiveSlide = activeSlide.kind === "reveal" && !revealed;
   const progress = useMemo(() => ((index + 1) / slides.length) * 100, [index, slides.length]);
 
   const revealControls = useCallback(() => {
@@ -429,9 +481,19 @@ export default function Presentation({ slides }: PresentationProps) {
   }, [revealControls]);
 
   const next = useCallback(() => {
+    if (slides[index]?.kind === "reveal" && !revealed) {
+      setRevealed(true);
+      revealControls();
+      return;
+    }
+
     setIndex((current) => Math.min(slides.length - 1, current + 1));
     revealControls();
-  }, [revealControls, slides.length]);
+  }, [index, revealControls, revealed, slides, slides.length]);
+
+  useEffect(() => {
+    setRevealed(false);
+  }, [index]);
 
   useEffect(() => {
     revealControls();
@@ -488,7 +550,10 @@ export default function Presentation({ slides }: PresentationProps) {
 
     const rect = event.currentTarget.getBoundingClientRect();
     const x = event.clientX - rect.left;
-    if (x >= rect.width / 2) next();
+    if (canRevealActiveSlide) {
+      setRevealed(true);
+      revealControls();
+    } else if (x >= rect.width / 2) next();
     else previous();
   };
 
@@ -523,7 +588,7 @@ export default function Presentation({ slides }: PresentationProps) {
       </div>
       <div className="stage-wrap" onClick={handleStageClick}>
         <div key={activeSlide.id} className="stage-canvas" aria-live="polite">
-          <SlideView slide={activeSlide} />
+          <SlideView slide={activeSlide} revealed={revealed} />
         </div>
       </div>
 

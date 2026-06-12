@@ -28,6 +28,11 @@ export type PhoneScreen =
       label: "Checkout";
     };
 
+export type MvpShot = {
+  src: string;
+  label: string;
+};
+
 export type Slide =
   | {
       id: "title";
@@ -83,8 +88,8 @@ export type Slide =
       kind: "mvp";
       label: "MVP и экраны";
       eyebrow: "MVP";
-      title: "Семь экранов MVP";
-      screens: PhoneScreen[];
+      title: "MVP в реальных экранах";
+      shots: MvpShot[];
     }
   | {
       id: "tech";
@@ -101,15 +106,31 @@ export type Slide =
       qrNote: "Попробовать MVP в браузере";
     }
   | {
+      id: "youtube-founder";
+      kind: "reveal";
+      label: "Основатель YouTube";
+      eyebrow: "Социальное доказательство";
+      title: "Мы только что общались с основателем YouTube, и он сказал:";
+      revealText: "Наше приложение лучше, чем AliExpress";
+    }
+  | {
       id: "thanks";
       kind: "thanks";
       label: "Спасибо";
       title: "Спасибо!";
-      text: "BirGe делает глобальные покупки локальными, социальными и выгодными.";
+      text: string;
       tag: "Покупать дешевле вместе";
     };
 
 export const slides: Slide[] = [
+  {
+    id: "youtube-founder",
+    kind: "reveal",
+    label: "Основатель YouTube",
+    eyebrow: "Социальное доказательство",
+    title: "Мы только что общались с основателем YouTube, и он сказал:",
+    revealText: "Наше приложение лучше, чем AliExpress"
+  },
   {
     id: "title",
     kind: "title",
@@ -206,15 +227,12 @@ export const slides: Slide[] = [
     kind: "mvp",
     label: "MVP и экраны",
     eyebrow: "MVP",
-    title: "Семь экранов MVP",
-    screens: [
-      { kind: "login", label: "Login" },
-      { kind: "sms", label: "SMS" },
-      { kind: "interests", label: "Interests" },
-      { kind: "home", label: "Home" },
-      { kind: "team", label: "Team" },
-      { kind: "cart", label: "Cart" },
-      { kind: "checkout", label: "Checkout" }
+    title: "MVP в реальных экранах",
+    shots: [
+      { src: "/mvp/login.jpg", label: "Вход" },
+      { src: "/mvp/home.jpg", label: "Рекомендации" },
+      { src: "/mvp/cart.jpg", label: "Корзина" },
+      { src: "/mvp/payment.jpg", label: "Оплата" }
     ]
   },
   {
@@ -247,7 +265,7 @@ export const slides: Slide[] = [
     kind: "thanks",
     label: "Спасибо",
     title: "Спасибо!",
-    text: "BirGe делает глобальные покупки локальными, социальными и выгодными.",
+    text: "Мы команда из nFactorial: fullstack-инженеры, AI-инженеры и продакт-менеджеры, которые работают в мировых компаниях.",
     tag: "Покупать дешевле вместе"
   }
 ];
